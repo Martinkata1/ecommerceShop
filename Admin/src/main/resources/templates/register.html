@@ -12,7 +12,7 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Направете акаунт!</h1>
                         </div>
                         <div th:if="${emailError}">
                             <p class="alert alert-danger" th:text="${emailError}"></p>
@@ -69,16 +69,16 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Register Account
+                                Регистрация
                             </button>
                             <hr>
                         </form>
                         <hr>
                         <div class="text-center">
-                            <a class="small" th:href="@{/forgot-password}">Forgot Password?</a>
+                            <a class="small" th:href="@{/forgot-password}">Забравена парола?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" th:href="@{/login}">Already have an account? Login!</a>
+                            <a class="small" th:href="@{/login}">Имате вече акаунт? Влезте!</a>
                         </div>
                     </div>
                 </div>

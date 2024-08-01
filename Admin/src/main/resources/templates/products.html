@@ -33,11 +33,11 @@
                         <input type="text" class="form-control rounded" placeholder="Search" name="keyword"
                                aria-label="Search"
                                aria-describedby="search-addon"/>
-                        <button type="submit" class="btn btn-outline-primary">search</button>
+                        <button type="submit" class="btn btn-outline-primary">търсене</button>
                     </form>
                 </div>
-                <a th:href="@{/add-product}" class="btn btn-primary">Add Product</a>
-                <p th:if="${size == 0} ">No Products</p>
+                <a th:href="@{/add-product}" class="btn btn-primary">Добави продукт</a>
+                <p th:if="${size == 0} ">Няма продукти</p>
                 <div th:if="${success}" class="text-center alert alert-success">
                     <p th:text="${success}"></p>
                 </div>
@@ -47,13 +47,13 @@
                 <table class="table table-bordered" th:if="${size > 0}">
                     <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Update</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Име</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Защита</th>
+                        <th scope="col">Снимка</th>
+                        <th scope="col">Ъпдейт</th>
+                        <th scope="col">Действие</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -66,13 +66,13 @@
                             <img class="my-product-image" style="height: 40px; width: 40px;" alt=""
                                  th:src="'data:image/jpeg;base64,' + ${product.image}">
                         </td>
-                        <td><a th:href="@{/update-product/{id}(id= ${product.id})}" class="btn btn-primary">Update</a>
+                        <td><a th:href="@{/update-product/{id}(id= ${product.id})}" class="btn btn-primary">Ъпдейт</a>
                         </td>
                         <td>
                             <a th:if="${product.deleted} == true" th:href="@{/enable-product(id = ${product.id})}"
-                               class="btn btn-primary">Enable</a>
+                               class="btn btn-primary">Отключи</a>
                             <a th:if="${product.deleted} == false" th:href="@{/delete-product(id = ${product.id})}"
-                               class=" btn btn-danger">Delete</a>
+                               class=" btn btn-danger">Премахни</a>
                         </td>
                     </tr>
                     </tbody>
@@ -83,7 +83,7 @@
                 <nav aria-label="...">
                     <ul class="pagination">
                         <li th:if="${currentPage != 0}" class="page-item ">
-                            <a th:href="@{'/products/' + ${currentPage - 1}}" class="page-link">Previous</a>
+                            <a th:href="@{'/products/' + ${currentPage - 1}}" class="page-link">Предишна</a>
                         </li>
                         <li th:each="i : ${#numbers.sequence(1, totalPages)}"
                             th:classappend="${currentPage == i - 1 ? 'active' : ''}" class="page-item">
@@ -91,7 +91,7 @@
 				     <span th:text="${i}">
 				     </span></a></li>
                         <li th:if="${currentPage + 1 != totalPages}" class="page-item">
-                            <a th:href="@{'/products/' + ${currentPage + 1}}" class="page-link" href="#">Next</a>
+                            <a th:href="@{'/products/' + ${currentPage + 1}}" class="page-link" href="#">Следваща</a>
                         </li>
                     </ul>
                 </nav>

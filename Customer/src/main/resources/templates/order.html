@@ -42,14 +42,14 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="order-date">Order Date</th>
-                            <th>Delivery Date</th>
-                            <th class="price-pr">Order Status</th>
+                            <th class="order-date">Дата на поръчката</th>
+                            <th>Предвидена доставка на поръчката</th>
+                            <th class="price-pr">Статус на поръчката</th>
 
-                            <th class="quantity-box">Quantity</th>
-                            <th>Total Price</th>
-                            <th class="total-pr">Payment Method</th>
-                            <th>Action</th>
+                            <th class="quantity-box">Бройка</th>
+                            <th>Обща цена</th>
+                            <th class="total-pr"> Начин на плащане</th>
+                            <th>Действие</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -58,10 +58,11 @@
                                 <span><b>[(${order.orderDate})]</b></span>
                             </td>
                             <td class="name-pr">
-                                <a th:if="${order.accept != null}" href="#">
+                                <!-- TODO make new template available for order details -->
+                                <a th:if="${order.accept != null}" href="/order-detail/[(${order.id})]">
                                     [(${order.deliveryDate})]
                                 </a>
-                                <a th:if="${order.accept == null}"><p>Pending</p></a>
+                                <a th:if="${order.accept == null}"><p>Изчакване</p></a>
                             </td>
                             <td class="price-pr">
                                 <p th:text="${order.orderStatus}"></p>
@@ -74,7 +75,7 @@
                                 <span></span>[(${order.paymentMethod})]</span>
                             </td>
                             <td>
-                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Cancel</a>
+                                <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Откажете</a>
                             </td>
                             </a>
                             </td>

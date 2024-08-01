@@ -31,10 +31,10 @@
         <div class="form">
             <h2>Log In</h2>
             <div th:if="${param.error}" class="alert alert-danger text-center">
-                Invalid username or password
+                Невалидно потребителско име или парола
             </div>
             <div th:if="${param.logout}" class="alert alert-success text-center">
-                You have been logged out!
+                Вие напуснахте!
             </div>
             <form th:action="@{/do-login}" method="post">
                 <div class="input-form">
@@ -47,10 +47,10 @@
                     <input type="submit" value="Log In">
                 </div>
                 <div class="input-form">
-                    <p>Do You Already Have An Account ? <a th:href="@{/register}">Sign up now </a></p>
+                    <p>Вече имате акаунт? <a th:href="@{/register}">Влезте! </a></p>
                 </div>
             </form>
-            <h3>Log In With Social Network</h3>
+            <h3>Влезте чрез социални мрежи</h3>
             <ul class="icon-dang-nhap">
                 <li><i class="fab fa-facebook-f"></i></i></li>
                 <li><i class="fab fa-google"></i></li>

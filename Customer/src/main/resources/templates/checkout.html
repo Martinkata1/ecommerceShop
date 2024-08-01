@@ -39,36 +39,36 @@
             <div class="col-sm-6 col-lg-6 mb-3">
                 <div class="checkout-address">
                     <div class="title-left">
-                        <h3>Billing address</h3>
+                        <h3>Адрес за плащане</h3>
                     </div>
                     <form class="needs-validation" novalidate th:object="${customer}">
 
                         <div class="mb-3">
-                            <label for="username">Username *</label>
+                            <label for="username">Потребителско име *</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" th:field="*{username}" id="username"
                                        placeholder="" readonly>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="phone">Phone Number *</label>
+                            <label for="phone">Телефонен номер *</label>
                             <input type="text" class="form-control" th:field="*{phoneNumber}" id="phone" placeholder=""
                                    readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="address">Address *</label>
+                            <label for="address">Адрес *</label>
                             <input type="text" class="form-control"
                                    th:value="${customer.address + ' ' + customer.city + ' ' + customer.country}"
                                    id="address" placeholder="" readonly>
                         </div>
-                        <a th:href="@{/profile}" class="btn btn-primary"> Change information</a>
+                        <a th:href="@{/profile}" class="btn btn-primary"> Промяна на информацията</a>
                         <hr class="mb-4">
-                        <div class="title"><span>Payment Methods</span></div>
+                        <div class="title"><span>Методи за плащане</span></div>
                         <div class="d-block my-3">
                             <div class="custom-control custom-radio">
                                 <input id="debit" name="paymentMethod" type="radio" checked class="custom-control-input"
                                        required>
-                                <label class="custom-control-label" for="debit">Cash</label>
+                                <label class="custom-control-label" for="debit">В брой</label>
                             </div>
                         </div>
                         <hr class="mb-1">
@@ -81,16 +81,16 @@
                     <div class="col-md-12 col-lg-12">
                         <div class="odr-box">
                             <div class="title-left">
-                                <h3>Shopping cart</h3>
+                                <h3>Количка</h3>
                             </div>
                             <div class="rounded p-2 bg-light">
                                 <div class="media mb-2 border-bottom" th:each="item : ${shoppingCart.getCartItems()}">
                                     <div class="media-body"><a href="product-detail.html"
                                                                th:text="${item.product.name}"></a>
-                                        <div class="small text-muted">Price: [(${item.product.costPrice})]$ <span
-                                                class="mx-2">|</span> Qty: [(${item.quantity})]
-                                            <span class="mx-2">|</span> Subtotal: $ + [(${item.unitPrice *
-                                            item.quantity})]
+                                        <div class="small text-muted">Цена: [(${item.product.costPrice})]$ <span
+                                                class="mx-2">|</span> Бройка: [(${item.quantity})]
+                                            <span class="mx-2">|</span> Обща цена:   [(${item.unitPrice *
+                                            item.quantity})] + BGN
                                         </div>
                                     </div>
                                 </div>
@@ -100,36 +100,36 @@
                     <div class="col-md-12 col-lg-12">
                         <div class="order-box">
                             <div class="title-left">
-                                <h2><b>Your order</b></h2>
+                                <h2><b>Вашата поръчка</b></h2>
                             </div>
                             <div class="d-flex">
-                                <div class="font-weight-bold">Product</div>
-                                <div class="ml-auto font-weight-bold">Total</div>
+                                <div class="font-weight-bold">Продукт</div>
+                                <div class="ml-auto font-weight-bold">Общо</div>
                             </div>
                             <hr class="my-1">
                             <div class="d-flex">
-                                <h4>Sub Total</h4>
+                                <h4>Обща сума</h4>
                                 <div class="ml-auto font-weight-bold" th:text="${shoppingCart.totalPrice}"></div>
                             </div>
                             <hr class="my-1">
                             <div class="d-flex">
-                                <h4>Tax</h4>
+                                <h4>Такса</h4>
                                 <div class="ml-auto font-weight-bold"> $2</div>
                             </div>
                             <div class="d-flex">
-                                <h4>Shipping Cost</h4>
+                                <h4>Адресна цена</h4>
                                 <div class="ml-auto font-weight-bold"> Free</div>
                             </div>
                             <hr>
                             <div class="d-flex gr-total">
-                                <h5>Grand Total</h5>
+                                <h5>Финална сума</h5>
                                 <div class="ml-auto h5" th:text="${shoppingCart.totalPrice + 2}"></div>
                             </div>
                             <hr>
                         </div>
                     </div>
                     <div class="col-12 d-flex shopping-box">
-                        <button type="submit" class="ml-auto btn hvr-hover">Place Order</button>
+                        <button type="submit" class="ml-auto btn hvr-hover">Поръчай</button>
                     </div>
                 </form>
             </div>

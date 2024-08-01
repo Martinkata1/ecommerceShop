@@ -29,12 +29,12 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="order-date">Order Date</th>
-                        <th>Delivery Date</th>
-                        <th class="price-pr">Order Status</th>
-                        <th class="quantity-box">Total Price</th>
-                        <th class="total-pr">Payment Method</th>
-                        <th>Action</th>
+                        <th class="order-date">Дата на поръчката</th>
+                        <th>Дата на доставка</th>
+                        <th class="price-pr">Статус на поръчка</th>
+                        <th class="quantity-box">Обща цена</th>
+                        <th class="total-pr">Метод на плащания</th>
+                        <th>Действие</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,16 +52,16 @@
                         </td>
                         <td class="quantity-box" th:text="${order.quantity}"></td>
                         <td class="total-pr">
-                            <p style="color: red">$ [(${order.totalPrice})]</p>
+                            <p style="color: red"> [(${order.totalPrice})] BGN</p>
                         </td>
                         <td class="total-pr" style="color: black">
                             <span></span>[(${order.paymentMethod})]</span>
                         </td>
                         <td>
                             <a th:if="${order.accept} != false" th:href="@{/cancel-order(id = ${order.id})}"
-                               class="btn btn-primary">Cancel</a>
+                               class="btn btn-primary">Откажи</a>
                             <a th:if="${order.accept} == false" th:href="@{/accept-order(id = ${order.id})}"
-                               class=" btn btn-secondary">Accept</a>
+                               class=" btn btn-secondary">Приеми</a>
                         </td>
                         </a>
                         </td>

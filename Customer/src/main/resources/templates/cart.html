@@ -65,7 +65,7 @@
                                 <p th:text="${cartItem.product.name}"></p>
                             </td>
                             <td class="price-pr">
-                                <p th:text="'$' + ${cartItem.unitPrice}"></p>
+                                <p th:text="'BGN' + ${cartItem.unitPrice}"></p>
                             </td>
                             <form th:action="@{/update-cart}" method="post">
                                 <input type="hidden" name="id" th:value="${cartItem.product.id}">
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="col-12 d-flex shopping-box"><a href="checkout.html" th:href="@{/check-out}"
-                                                       class="ml-auto btn hvr-hover">Пеодължи</a>
+                                                       class="ml-auto btn hvr-hover">Пподължи</a>
             </div>
         </div>
     </div>
