@@ -20,6 +20,10 @@ public class Product {
     private int currentQuantity;
     private double costPrice;
     private double salePrice;
+
+    public double getCostPrice() {
+        return this.costPrice;
+    }
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
@@ -28,5 +32,8 @@ public class Product {
     private Category category;
     private boolean is_activated;
     private boolean is_deleted;
+
+
+
 
 }

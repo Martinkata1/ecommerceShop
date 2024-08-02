@@ -27,6 +27,8 @@ public class CartItem {
     private int quantity;
     private double unitPrice;
 
+
+
     @Override
     public String toString() {
         return "CartItem{" +
