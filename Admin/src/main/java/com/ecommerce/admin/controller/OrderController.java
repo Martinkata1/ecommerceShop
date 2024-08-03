@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,7 +31,22 @@ public class OrderController {
         }
     }
 
+    @GetMapping("/order/order-details/{orderId}")///{orderId}
+    public String getOrderDetails(@PathVariable("orderId") Long orderId, Model model, Principal principal) {
+        // Check if user is logged in
+        if (principal == null) {
+            return "redirect:/login";
+        }
 
+        // Retrieve order details based on orderId
+        Order order = orderService.getOrderById(orderId);
+
+        // Add order details to the model
+        model.addAttribute("order", order);
+        model.addAttribute("title", "Order Details");
+
+        return "order-details";
+    }
     @RequestMapping(value = "/accept-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String acceptOrder(Long id, RedirectAttributes attributes, Principal principal) {
         if (principal == null) {

@@ -31,9 +31,9 @@
                     <tr>
                         <th class="order-date">Дата на поръчката</th>
                         <th>Дата на доставка</th>
-                        <th class="price-pr">Статус на поръчка</th>
-                        <th class="quantity-box">Обща цена</th>
-                        <th class="total-pr">Метод на плащания</th>
+                        <th class="price-pr">Цена</th>
+                        <th class="quantity-box">бройка</th>
+                        <th class="total-pr">Обща сума на плащания</th>
                         <th>Действие</th>
                     </tr>
                     </thead>
@@ -43,9 +43,17 @@
                             <span><b>[(${order.orderDate})]</b></span>
                         </td>
                         <td class="name-pr" th:if="${order.accept == true}">
-                            <a href="@{/order-details(id=${order.id})}">
-                                [(${order.deliveryDate})]
+                            <a th:href="@{order/order-details/{id}(id=${order_id})}">
+                            [(${order.deliveryDate})]
                             </a>
+                            <!--\
+                            <ul>
+                            <li><a th:href="@{/product-detail/{id}(id = ${product.id})}"
+                            data-toggle="tooltip"
+                            data-placement="right" title="View"><i
+                           class="fas fa-eye"></i></a></li>
+                                                        </ul>
+                            -->
                         </td>
                         <td class="price-pr">
                             <p th:text="${order.orderStatus}"></p>

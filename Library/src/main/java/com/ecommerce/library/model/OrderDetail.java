@@ -34,7 +34,7 @@ public class OrderDetail {
         return product.getPrice();
     }*/
 
-    /*
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JoinColumn(name = "quantity", referencedColumnName = "quantity")
     private int quantity;
@@ -43,13 +43,12 @@ public class OrderDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JoinColumn(name = "price", referencedColumnName = "cost_price")
     private double price;
-
+    /* useless
     public double getPrice() {
         if (product != null) {
             return product.getCostPrice();
         } else {
-            // Обработка на случаите, когато product е null
-            return 0.0; // или друга подходяща стойност
+            return 0.0;
         }
     }*/
 

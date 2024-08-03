@@ -4,9 +4,12 @@
 <head>
     <!-- Include the header fragment here -->
     <div th:replace="~{fragments::header}"></div>
+    <title> Order Details </title>
+    <meta name="viewport" content="width=device-width, initial">
 </head>
 
 <body id="page-top">
+    <h1>Order Details</h1>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -21,21 +24,19 @@
         <!-- Main Content -->
         <div id="content">
 
-            <!-- Topbar -->
             <div th:replace="~{fragments::top-navbar}"></div>
-            <!-- End of Topbar -->
 
-            <!-- Begin Page Content -->
             <div class="container-fluid">
                 <h1>Order Details</h1>
                 <p>Order ID: <span th:text="${order.id}"></span></p>
                 <p>Customer Name: <span th:text="${order.customer.name}"></span></p>
                 <p>Order Date: <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd')}"></span></p>
-                <!-- Add more order details as needed -->
-                <a th:href="@{/order-details(id=${order.id})}">View Order Details</a>
+                <a th:href="@{order/order-details/{id}(id=${order_id})}">View Order Details</a>
             </div>
         </div>
-        <!-- End of Main Content -->
+
+
+
 
         <!-- Footer -->
         <div th:replace="~{fragments::footer}"></div>
