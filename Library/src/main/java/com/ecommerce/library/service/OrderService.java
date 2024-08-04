@@ -18,4 +18,8 @@ public interface OrderService {
     void cancelOrder(Long id);
 
     Order getOrderById(Long id);
+
+
+    //Order findById(Long orderId);
+
 }

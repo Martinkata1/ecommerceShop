@@ -9,7 +9,7 @@
 </head>
 
 <body id="page-top">
-    <h1>Order Details</h1>
+
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -29,9 +29,31 @@
             <div class="container-fluid">
                 <h1>Order Details</h1>
                 <p>Order ID: <span th:text="${order.id}"></span></p>
-                <p>Customer Name: <span th:text="${order.customer.name}"></span></p>
+                <!-- th:text="${order.customers.first_name} e oburkano, TODO-->
+                <p>Customer Name: <span></span></p>
+
                 <p>Order Date: <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd')}"></span></p>
-                <a th:href="@{order/order-details/{id}(id=${order_id})}">View Order Details</a>
+                <!-- <tr th:each="product : ${products}">
+                        <th scope="row" th:text="${product.name}"></th>
+                        <td th:text="${product.category.name}"></td>
+                        <td th:text="${product.costPrice}"></td>
+                        <td th:text="${product.currentQuantity}"></td>
+
+                    </tr>-->
+                <div class="product">
+                    <!-- th:text="${product.name}" TODO problem-->
+                    <p>Име на продукта: <span ></span></p>
+                    <!-- th:text="${product.price}" TODO problem-->
+                    <p>Единична цена: <span></span></p>
+                    <!-- th:text="${product.quantity}" TODO problem-->
+                    <p>Бройка: <span ></span></p>
+                    <!-- th:text="${product.price * product.quantity}"" TODO problem-->
+                    <p>Общо: <span ></span></p>
+                </div>
+                <td class="total-pr">
+                    <p style="color: red"> Обща цена: [(${order.totalPrice})] BGN</p>
+                </td>
+
             </div>
         </div>
 

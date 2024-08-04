@@ -43,7 +43,7 @@
                             <span><b>[(${order.orderDate})]</b></span>
                         </td>
                         <td class="name-pr" th:if="${order.accept == true}">
-                            <a th:href="@{order/order-details/{id}(id=${order_id})}">
+                            <a th:href="@{order/order-details/{id}(id=${order.id})}">
                             [(${order.deliveryDate})]
                             </a>
                             <!--\

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -69,7 +70,23 @@ public class OrderController {
         }
     }
 
-    @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
+    @GetMapping("/orders/specific-order-detail/{orderId}")
+    public String getOrderDetails(@PathVariable("orderId") Long orderId, Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/login";
+        } else {
+            Order order = orderService.getOrderById(orderId); // Retrieve the specific order by its ID
+
+            model.addAttribute("order", order);
+            model.addAttribute("title", "Order Detail");
+            model.addAttribute("page", "Order Detail");
+            model.addAttribute("success", "Order details retrieved successfully");
+            return "specific-order-detail";
+        }
+    }
+
+
+        @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String cancelOrder(Long id, RedirectAttributes attributes) {
         orderService.cancelOrder(id);
         attributes.addFlashAttribute("success", "Cancel order successfully!");
@@ -95,5 +112,4 @@ public class OrderController {
             return "order-detail";
         }
     }
-
 }

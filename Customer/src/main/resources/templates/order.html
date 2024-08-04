@@ -45,7 +45,6 @@
                             <th class="order-date">Дата на поръчката</th>
                             <th>Предвидена доставка на поръчката</th>
                             <th class="price-pr">Статус на поръчката</th>
-
                             <th class="quantity-box">Бройка</th>
                             <th>Обща цена</th>
                             <th class="total-pr"> Начин на плащане</th>
@@ -59,7 +58,7 @@
                             </td>
                             <td class="name-pr">
                                 <!-- TODO make new template available for order details -->
-                                <a th:if="${order.accept != null}" href="/order-detail/[(${order.id})]">
+                                <a th:if="${order.accept != null}" th:href="@{/orders/specific-order-detail/{id}(id=${order.id})}">
                                     [(${order.deliveryDate})]
                                 </a>
                                 <a th:if="${order.accept == null}"><p>Изчакване</p></a>
@@ -67,17 +66,17 @@
                             <td class="price-pr">
                                 <p th:text="${order.orderStatus}"></p>
                             </td>
-                            <td class="quantity-box" th:text="${order.quantity}"></td>
+                            <td class="quantity-box">
+                                <span th:text="${order.quantity}"></span>
+                            </td>
                             <td class="total-pr">
                                 <p style="color: red">$ [(${order.totalPrice})]</p>
                             </td>
                             <td class="total-pr" style="color: black">
-                                <span></span>[(${order.paymentMethod})]</span>
+                                <span>[(${order.paymentMethod})]</span>
                             </td>
                             <td>
                                 <a th:href="@{/cancel-order/(id = ${order.id})}" class="button-cancel">Откажете</a>
-                            </td>
-                            </a>
                             </td>
                         </tr>
                         </tbody>
