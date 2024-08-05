@@ -58,7 +58,7 @@
                             </td>
                             <td class="name-pr">
                                 <!-- TODO make new template available for order details -->
-                                <a th:if="${order.accept != null}" th:href="@{/orders/specific-order-detail/{id}(id=${order.id})}">
+                                <a th:if="${order.accept != null}" th:href="/order-detail/[(${order.id})]">
                                     [(${order.deliveryDate})]
                                 </a>
                                 <a th:if="${order.accept == null}"><p>Изчакване</p></a>
@@ -66,9 +66,7 @@
                             <td class="price-pr">
                                 <p th:text="${order.orderStatus}"></p>
                             </td>
-                            <td class="quantity-box">
-                                <span th:text="${order.quantity}"></span>
-                            </td>
+                            <td class="quantity-box" th:text="${order.quantity}"></td>
                             <td class="total-pr">
                                 <p style="color: red">$ [(${order.totalPrice})]</p>
                             </td>
