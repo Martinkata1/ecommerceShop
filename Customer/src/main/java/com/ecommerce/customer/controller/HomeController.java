@@ -40,4 +40,9 @@ public class HomeController {
         return "contact-us";
     }
 
+    @GetMapping("/info")
+    public String getInfo() {
+        return "info";
+    }
+
 }
