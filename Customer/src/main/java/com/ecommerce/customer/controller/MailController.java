@@ -1,4 +1,4 @@
-package com.ecommerce.customer.controller;
+/*package com.ecommerce.customer.controller;
 
 
 import com.ecommerce.library.service.MailService;
@@ -20,3 +20,4 @@ public class MailController {
         return "Success";
     }
 }
+*/

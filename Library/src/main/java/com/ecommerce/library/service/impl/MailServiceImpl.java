@@ -1,4 +1,4 @@
-
+/*
 package com.ecommerce.library.service.impl;
 
 
@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 public class MailServiceImpl implements MailService {
 
     @Autowired
-    JavaMailSender mailSender;
+    private JavaMailSender mailSender;
 
     @Value("${spring.mail.username}")
     private String email;
@@ -46,3 +46,4 @@ public class MailServiceImpl implements MailService {
 
 
 }
+ */
