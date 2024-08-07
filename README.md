@@ -42,3 +42,44 @@ This e-commerce platform allows users to browse, search, and purchase various Tu
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/e-commerce-website.git
+
+2. Navigate to the project directory:
+   ```bash
+   cd e-commerce-website
+
+3. Install dependencies:
+   ```bash
+   mvn install
+4. Configure the database settings in application.properties.
+5. Run the application:
+   ```bash
+   mvn spring-boot:run
+
+## Usage
+1. Access the website at http://localhost:8019/admin/ for Admin Panel and http://localhost:8020/shop/ for Customer Panel.
+2. Register or log in as a user to browse and purchase products.
+3. Log in as an admin to manage products, orders, and users.
+
+## Screenshots
+Include screenshots of your application here.
+
+## Contributing
+If you wish to contribute to this project, please fork the repository and submit a pull request. You can also open an issue to discuss potential improvements or report bugs.
+
+1. Fork the repository
+2. Create a new branch (git checkout -b feature-branch)
+3. Commit your changes (git commit -m 'Add some feature')
+4. Push to the branch (git push origin feature-branch)
+5. Open a pull request
+   
+## License
+This project is not licensed.
+
+## Contact
+For any questions or comments, feel free to reach out:
+
+Name: Martin Kostadinov
+Email: marti.kostadinov2003@gmail.com
+instagram: https://www.instagram.com/marti.kostadinov7777
+Linkedin: https://www.linkedin.com/in/marti-kostadinov-954483243
+Facebook: https://www.facebook.com/profile.php?id=100081383798329
