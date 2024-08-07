@@ -57,8 +57,8 @@ This e-commerce platform allows users to browse, search, and purchase various Tu
 
 ## Usage
 1. Access the website at http://localhost:8019/admin/ for Admin Panel and http://localhost:8020/shop/ for Customer Panel.
-2. Register or log in as a user to browse and purchase products.
-3. Log in as an admin to manage products, orders, and users.
+2. Log in as an admin to manage products, orders, and users. 
+3. Register or log in as a user to browse and purchase products.
 
 ## Screenshots
 Include screenshots of your application here.
@@ -78,8 +78,8 @@ This project is not licensed.
 ## Contact
 For any questions or comments, feel free to reach out:
 
-Name: Martin Kostadinov
-Email: marti.kostadinov2003@gmail.com
-instagram: https://www.instagram.com/marti.kostadinov7777
-Linkedin: https://www.linkedin.com/in/marti-kostadinov-954483243
-Facebook: https://www.facebook.com/profile.php?id=100081383798329
+- Name: Martin Kostadinov
+- Email: marti.kostadinov2003@gmail.com
+- instagram: https://www.instagram.com/marti.kostadinov7777
+- Linkedin: https://www.linkedin.com/in/marti-kostadinov-954483243
+- Facebook: https://www.facebook.com/profile.php?id=100081383798329
