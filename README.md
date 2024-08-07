@@ -63,55 +63,55 @@ This e-commerce platform allows users to browse, search, and purchase various Tu
 ## Screenshots
 
 ![Admin Login](screenshots/admin_login.png)
-*Login for Admin, you can create and log.*
+- *Login for Admin, you can create and log.*
 
 ![Admin Homepage](screenshots/admin.png)
-*This is admin homepage.*
+- *This is admin homepage.*
 
 ![Admin Categories](screenshots/categories.png)
-*You can add/delete Categories.*
+- *You can add/delete Categories.*
 
 ![Admin Products](screenshots/products.png)
-*You can add/delete Products.*
+- *You can add/delete Products.*
 
 ![Admin Orders](screenshots/admin_orders.png)
-*You can see and apply/finish Orders.*
+- *You can see and apply/finish Orders.*
 
 ![Customer Login](https://github.com/user-attachments/assets/647753bb-d1ee-43c1-a2e0-1e3cc8b78576)
-*Login for every Customer, you can create and log.*
+- *Login for every Customer, you can create and log.*
 
 ![Customer Homepage](screenshots/shop.png)
-*This is customer homepage.*
+- *This is customer homepage.*
 
 ![Product Page](screenshots/main_shop.png)
-*Menu, you can see overall products with categories.*
+- *Menu, you can see overall products with categories.*
 
 ![Product Page Special](screenshots/shop_with_search_categories_and_etc.png)
-*This is Real Shop, you can every product with categories, search by name product, sort by categories and see how much products has every category.*
+- *This is Real Shop, you can every product with categories, search by name product, sort by categories and see how much products has every category.*
 
 ![Chart With Products Page](screenshots/chart_with_products.png)
-*When you add some products, your chart will have products and you can order.*
+- *When you add some products, your chart will have products and you can order.*
 
 ![Finishing Order](screenshots/finishing_order.png)
-*When you click "Продължи", you will see last Panel for eventually customizing customer's information, and if you continue, you will finish the order.*
+- *When you click "Продължи", you will see last Panel for eventually customizing customer's information, and if you continue, you will finish the order.*
 
 ![Finished Order](screenshots/finished_order.png)
-*Finished? You see your receipt for products.*
+- *Finished? You see your receipt for products.*
 
 ![History of your Orders](screenshots/history_of_your_order.png)
-*Once you finish your order, you can see in "Вашите поръчки"  yours orders. When is added and when will be shipped, you can cancel the order.*
+- *Once you finish your order, you can see in "Вашите поръчки"  yours orders. When is added and when will be shipped, you can cancel the order.*
 
 ![Contacts US](screenshots/contacts.png)
-*Contacts, when you have problem or want to visit us, contacts about us.*
+- *Contacts, when you have problem or want to visit us, contacts about us.*
 
 ![Information Page](screenshots/information_with_map.png)
-*More information about us and location with Google Map.*
+- *More information about us and location with Google Map.*
 
 ![DB Files](screenshots/db_files.png)
-*Every table for this project in base data(This is from MySQL, i think you can use DBeaver for example too).*
+- *Every table for this project in base data(This is from MySQL, i think you can use DBeaver for example too).*
 
 ![Problem in DB](screenshots/problem_need_fix.png)
-***WARNING**: Please in **country** and **cities** add some information, because the order can't be finished, if it is empty. For example in **country** add country_id 
+- ***WARNING**: Please in **country** and **cities** add some information, because the order can't be finished, if it is empty. For example in **country** add country_id 
  is id number of country and name the country next to it. In **cities**, just add id number city, name and exist country_id number. After screenshots, i will explain better how to Setup the Data Base*
 
 ## Database Setup
