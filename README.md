@@ -77,7 +77,7 @@ This e-commerce platform allows users to browse, search, and purchase various Tu
 ![Admin Orders](screenshots/admin_orders.png)
 *You can see and apply/finish Orders.*
 
-![Customer Login](screenshots/customer_login.png)
+![Customer Login]("Ecommerce_Shop_HMWP\screenshots\customer_login.png")
 *Login for every Customer, you can create and log.*
 
 ![Customer Homepage](screenshots/shop.png)
