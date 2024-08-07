@@ -1,6 +1,6 @@
 
-/* package com.ecommerce.library.service.impl;
 package com.ecommerce.library.service.impl;
+
 
 import com.ecommerce.library.service.MailService;
 import jakarta.mail.internet.MimeMessage;
@@ -33,7 +33,7 @@ public class MailServiceImpl implements MailService {
 
             helper.setFrom(email);
             helper.setTo("balkansofra@gmail.com");
-            helper.setSubject("Test mode");
+            helper.setSubject("Demo Message");
             helper.setText("Здравейте, как мога да ви бъда полезен?");
 
             mailSender.send(message);
@@ -46,4 +46,3 @@ public class MailServiceImpl implements MailService {
 
 
 }
-*/
