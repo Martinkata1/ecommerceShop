@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{fragments::head}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="fragments ::main-top">
+</div>
+<!-- End Main Top -->
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments::all-title-box}">
+</div>
+<!-- End All Title Box -->
+
+<!-- Update Personal Information -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div th:if="${success}" class="text-center alert-success alert">
+                    <p th:text="${success}"></p>
+                </div>
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="order-date">Дата на поръчката</th>
+                            <th>Предвидена доставка на поръчката</th>
+                            <th class="price-pr">Статус на поръчката</th>
+                            <th class="quantity-box">Бройка</th>
+                            <th>Обща цена</th>
+                            <th class="total-pr"> Начин на плащане</th>
+                            <th>Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="order : ${orders}">
+                            <td class="order-date">
+                                <span><b>[(${order.orderDate})]</b></span>
+                            </td>
+                            <td class="name-pr">
+                                <!-- TODO make new template available for order details -->
+                                <a th:if="${order.accept != null}" th:href="@{/orders/specific-order-detail/{id}(id=${order.id})}">
+                                    [(${order.deliveryDate})]
+                                </a>
+                                <a th:if="${order.accept == null}"><p>Изчакване</p></a>
+                            </td>
+                            <td class="price-pr">
+                                <p th:text="${order.orderStatus}"></p>
+                            </td>
+                            <td class="quantity-box">
+                                <span th:text="${order.quantity}"></span>
+                            </td>
+                            <td class="total-pr">
+                                <p style="color: red">$ [(${order.totalPrice})]</p>
+                            </td>
+                            <td class="total-pr" style="color: black">
+                                <span>[(${order.paymentMethod})]</span>
+                            </td>
+                            <td>
+                                <a th:href="@{/cancel-order(id=${order.id})}" class="button-cancel">Откажете</a>
+                            </td>
+                            <!-- <td>
+                            <a th:if="${order.accept} != false" th:href="@{/cancel-order(id = ${order.id})}"
+                               class="btn btn-primary">Откажи</a>
+                            <a th:if="${order.accept} == false" th:href="@{/accept-order(id = ${order.id})}"
+                               class=" btn btn-secondary">Приеми</a>
+                        </td> -->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{fragments::footer}"></footer>
+
+<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+<!-- ALL JS FILES -->
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>

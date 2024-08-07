@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<!-- Basic -->
+
+<head th:replace="~{fragments::head}">
+    <title>Info Page</title>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="~{fragments::main-top}">
+</div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="~{fragments::main-header}">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="~{fragments::top-search}">
+</div>
+<!-- End Top Search -->
+
+
+<!-- Start All Title Box -->
+<div th:replace="~{fragments::all-title-box}">
+</div>
+<!-- End All Title Box -->
+<div class="container">
+
+    <h1 style="width: fit-content;
+     margin-left: auto;
+     margin-right: auto;">Повече информация за нас
+    </h1>
+    <p style="width: fit-content;
+     margin-left: auto;
+     margin-right: auto;">
+        Добре дошли в нашия турски хранителен магазин! Ние предлагаме широка гама от висококачествени продукти,
+        които ще задоволят всички ваши нужди. В нашия магазин ще намерите всичко от свежи плодове и зеленчуци
+        до екзотични подправки и традиционни турски сладкиши. Нашата цел е да предоставим на нашите клиенти
+        най-добрите продукти на достъпни цени, като същевременно запазим високите стандарти за качество и обслужване.
+        Благодарим ви, че избрахте нас и се надяваме да ви видим скоро!
+    </p>
+
+</div>
+<div class="map-container"
+     style="width: fit-content;
+     margin-left: auto;
+     margin-right: auto;"
+
+>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.746377989806!2d23.393940183905833!3d42.7090907386391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8f491b0473e7%3A0x7aa27d910b18bf87!2sg.k.%20Levski%20G%2C%20bul.%20%22Vladimir%20Vazov%22%2089%D0%90%2C%201839%20Sofia!5e0!3m2!1sen!2sbg!4v1722886285888!5m2!1sen!2sbg"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+<!-- Start Feed  -->
+<div th:replace="~{fragments::instagram-box}">
+</div>
+<!-- End Feed  -->
+
+<!-- Start Footer  -->
+<footer th:replace="~{fragments::footer}">
+</footer>
+<div th:replace="~{fragments::script}"></div>
+</body>
+
+</html>
