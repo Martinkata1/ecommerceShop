@@ -30,7 +30,7 @@ public class MailServiceImpl implements MailService {
                     StandardCharsets.UTF_8.name());
 
             helper.setFrom(email);
-            helper.setTo("marti.kostadinov2003@gmail.com");
+            helper.setTo("balkansofra@gmail.com");
             helper.setSubject("Test mode");
             helper.setText("Здравейте, как мога да ви бъда полезен?");
 

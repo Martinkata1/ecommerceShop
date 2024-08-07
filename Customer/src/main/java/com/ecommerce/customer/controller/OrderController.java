@@ -64,8 +64,8 @@ public class OrderController {
             Customer customer = customerService.findByUsername(principal.getName());
             List<Order> orderList = customer.getOrders();
             model.addAttribute("orders", orderList);
-            model.addAttribute("title", "Orders");
-            model.addAttribute("page", "Orders");
+            model.addAttribute("title", "Order");
+            model.addAttribute("page", "Order");
             return "order";
         }
     }
@@ -78,8 +78,8 @@ public class OrderController {
             Order order = orderService.getOrderById(orderId); // Retrieve the specific order by its ID
 
             model.addAttribute("order", order);
-            model.addAttribute("title", "Specific Order Detail");
-            model.addAttribute("page", "Specific Order Detail");
+            model.addAttribute("title", "Order Detail");
+            model.addAttribute("page", "Order Detail");
             model.addAttribute("success", "Order details retrieved successfully");
             return "specific-order-detail";
         }
