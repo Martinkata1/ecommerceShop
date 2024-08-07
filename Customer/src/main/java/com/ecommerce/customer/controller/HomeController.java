@@ -41,7 +41,9 @@ public class HomeController {
     }
 
     @GetMapping("/info")
-    public String getInfo() {
+    public String getInfo(Model model) {
+        model.addAttribute("title", "Information");
+        model.addAttribute("page", "Information");
         return "info";
     }
 

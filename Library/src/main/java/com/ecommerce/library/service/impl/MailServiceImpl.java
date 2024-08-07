@@ -16,7 +16,7 @@ public class MailServiceImpl implements MailService {
     @Autowired
     JavaMailSender mailSender;
 
-    @Value("{spring.mail.username}")
+    @Value("${spring.mail.username}")
     private String email;
     @Override
     public void sendMailTest() {
@@ -32,7 +32,7 @@ public class MailServiceImpl implements MailService {
             helper.setFrom(email);
             helper.setTo("marti.kostadinov2003@gmail.com");
             helper.setSubject("Test mode");
-            helper.setText("Hello, how i can help you?");
+            helper.setText("Здравейте, как мога да ви бъда полезен?");
 
             mailSender.send(message);
 
