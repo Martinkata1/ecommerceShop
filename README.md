@@ -61,7 +61,77 @@ This e-commerce platform allows users to browse, search, and purchase various Tu
 3. Register or log in as a user to browse and purchase products.
 
 ## Screenshots
-Include screenshots of your application here.
+
+![Admin Login](screenshots/admin_login.png)
+*Login for Admin, you can create and log.*
+
+![Admin Homepage](screenshots/admin.png)
+*This is admin homepage.*
+
+![Admin Categories](screenshots/categories.png)
+*You can add/delete Categories.*
+
+![Admin Products](screenshots/products.png)
+*You can add/delete Products.*
+
+![Admin Orders](screenshots/admin_orders.png)
+*You can see and apply/finish Orders.*
+
+![Customer Login](screenshots/customer_login.png)
+*Login for every Customer, you can create and log.*
+
+![Customer Homepage](screenshots/shop.png)
+*This is customer homepage.*
+
+![Product Page](screenshots/main_shop.png)
+*Menu, you can see overall products with categories.*
+
+![Product Page Special](screenshots/shop_with_search_categories_and_etc.png)
+*This is Real Shop, you can every product with categories, search by name product, sort by categories and see how much products has every category.*
+
+![Chart With Products Page](screenshots/chart_with_products.png)
+*When you add some products, your chart will have products and you can order.*
+
+![Finishing Order](screenshots/finishing_order.png)
+*When you click "Продължи", you will see last Panel for eventually customizing customer's information, and if you continue, you will finish the order.*
+
+![Finished Order](screenshots/finished_order.png)
+*Finished? You see your receipt for products.*
+
+![History of your Orders](screenshots/history_of_your_order.png)
+*Once you finish your order, you can see in "Вашите поръчки"  yours orders. When is added and when will be shipped, you can cancel the order.*
+
+![Contacts US](screenshots/contacts.png)
+*Contacts, when you have problem or want to visit us, contacts about us.*
+
+![Information Page](screenshots/information_with_map.png)
+*More information about us and location with Google Map.*
+
+![DB Files](screenshots/db_files.png)
+*Every table for this project in base data(This is from MySQL, i think you can use DBeaver for example too).*
+
+![Problem in DB](screenshots/problem_need_fix.png)
+***WARNING**: Please in **country** and **cities** add some information, because the order can't be finished, if it is empty. For example in **country** add country_id 
+ is id number of country and name the country next to it. In **cities**, just add id number city, name and exist country_id number. After screenshots, i will explain better how to Setup the Data Base*
+
+## Database Setup
+**WARNING**: Please ensure that you have populated the country and cities tables with some initial data, otherwise the order cannot be completed. Here are the steps to add the necessary information:
+
+*Adding Data to the Country Table*
+1. Open your database management tool (e.g., MySQL Workbench).
+2. Execute the following SQL query to insert data into the country table:
+   ```sql
+   INSERT INTO country (country_id, name) VALUES (1, 'Turkey');
+- country_id is the ID number of the country.
+- name is the name of the country.
+
+*Adding Data to the Cities Table*
+1. Execute the following SQL query to insert data into the cities table:
+   ```sql
+   INSERT INTO cities (city_id, name, country_id) VALUES (1, 'Istanbul', 1);
+- city_id is the ID number of the city.
+- name is the name of the city.
+- country_id is the ID number of the corresponding country, creating a link between the city and the country.
 
 ## Contributing
 If you wish to contribute to this project, please fork the repository and submit a pull request. You can also open an issue to discuss potential improvements or report bugs.
