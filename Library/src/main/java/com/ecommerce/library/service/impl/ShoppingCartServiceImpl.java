@@ -20,6 +20,17 @@ import org.springframework.util.ObjectUtils;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Implementation for Shopping Cart Service
+ *
+ * add item to cart, update cart, remove from cart
+ * add item to cart, update cart, remove from cart, but in session
+ * combine cart, delete cart by id, get cart by username
+ * find or dinf in dto
+ * total items in cart and total price in cart
+ * total items in cart and total price in cart but in dto
+ * transfer and convert cart item
+ */
 @Service
 @RequiredArgsConstructor
 public class ShoppingCartServiceImpl implements ShoppingCartService {

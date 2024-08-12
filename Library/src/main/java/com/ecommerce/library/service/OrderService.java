@@ -5,7 +5,13 @@ import com.ecommerce.library.model.ShoppingCart;
 
 import java.util.List;
 
-
+/**
+ * Service for Oder
+ * Save
+ * find all by username, all orders
+ * accept and cancel orders
+ * get order by id
+ */
 public interface OrderService {
     Order save(ShoppingCart shoppingCart);
 

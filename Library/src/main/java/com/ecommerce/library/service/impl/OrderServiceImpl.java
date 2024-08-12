@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Implementation of  Order Service
+ * Implementation save, cancel, accept, get order by id and show every order by urername or every
+ */
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {

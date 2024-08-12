@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Implementation of Category service
+ * Implementation for save/update
+ * implementation for enable/delete and find categories and their body counts
+ */
+
 @Service
 @RequiredArgsConstructor
 public class CategoryServiceImpl implements CategoryService {

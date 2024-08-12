@@ -14,12 +14,27 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * This controller is responsible for managing orders in the application.
+ */
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
-
+    /**
+     * A service layer that manages the business logic for orders.
+     */
     private final OrderService orderService;
 
+    /**
+     * Handles GET requests to /orders.
+     * Checks if the user is authenticated (Principal is not null). If not,
+     * redirects the user to the login page.
+     * Calls findALlOrders() method of OrderService
+     * to get a list of orders and adds it to the model.
+     * @param model
+     * @param principal
+     * @return "orders"
+     */
     @GetMapping("/orders")
     public String getAll(Model model, Principal principal) {
         if (principal == null) {
@@ -31,6 +46,15 @@ public class OrderController {
         }
     }
 
+    /**
+     * Handles GET requests to /order/order-details/{orderId} where {orderId} is the order ID.
+     * Checks if the user is authenticated. If not, redirects to login page.
+     * Calls getOrderById(orderId) method of OrderService to get the order details.
+     * @param orderId
+     * @param model
+     * @param principal
+     * @return specific order details
+     */
     @GetMapping("/order/order-details/{orderId}")///{orderId}
     public String getOrderDetails(@PathVariable("orderId") Long orderId, Model model, Principal principal) {
         // Check if user is logged in
@@ -47,6 +71,17 @@ public class OrderController {
 
         return "order-details";
     }
+
+    /**
+     * Handles PUT and GET requests to /accept-order to accept an order with a given ID.
+     * Checks if the user is authenticated. If not, redirects to login page.
+     * Calls the acceptOrder(id) method of the OrderService to mark the order as accepted.
+     * Adds a success message to the RedirectAttributes and redirects back to the order list page.
+     * @param id
+     * @param attributes
+     * @param principal
+     * @return "redirect:/orders"
+     */
     @RequestMapping(value = "/accept-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String acceptOrder(Long id, RedirectAttributes attributes, Principal principal) {
         if (principal == null) {
@@ -58,6 +93,15 @@ public class OrderController {
         }
     }
 
+    /**
+     * Handles PUT and GET requests to /cancel-order to cancel an order with a given ID.
+     * Checks if the user is authenticated. If not, redirects to login page.
+     * Calls the cancelOrder(id) method of the OrderService to mark the order as canceled.
+     * Redirects back to the order list page.
+     * @param id
+     * @param principal
+     * @return "redirect:/orders"
+     */
     @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String cancelOrder(Long id, Principal principal) {
         if (principal == null) {

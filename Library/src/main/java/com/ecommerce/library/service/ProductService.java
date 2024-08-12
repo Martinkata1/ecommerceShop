@@ -7,6 +7,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+/**
+ * Services for Products
+ * save, update
+ * enable, delete
+ * search, find by id, by id dto and etc
+ *
+ */
 public interface ProductService {
     List<Product> findAll();
 

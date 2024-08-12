@@ -6,6 +6,13 @@ import com.ecommerce.library.model.Category;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Seervice implementation for  Category
+ * save/update category
+ * searching active or all category/ by id
+ * enable or deleting by id category
+ * by sizes, meaning every category has body count
+ */
 public interface CategoryService {
     Category save(Category category);
 

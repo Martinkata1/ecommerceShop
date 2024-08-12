@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
+/**
+ * Implementation of  Customer Service
+ * save/change/update password
+ * get/show specific customer bu username
+ * find urersname by username
+ */
 @Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {

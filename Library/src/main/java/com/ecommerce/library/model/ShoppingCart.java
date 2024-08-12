@@ -8,6 +8,9 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Model/Entity implementation for ShoppingCart
+ */
 @Getter
 @Setter
 @AllArgsConstructor

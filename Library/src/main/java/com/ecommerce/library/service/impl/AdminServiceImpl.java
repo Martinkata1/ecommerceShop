@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
+/**
+ * Implementation of Admin service
+ * Implementation for save and find by username
+ */
+
 @Service
 @RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {

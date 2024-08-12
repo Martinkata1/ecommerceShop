@@ -21,14 +21,32 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * Controller for customer authentication
+ */
 @Controller
 @RequiredArgsConstructor
 public class CustomerController {
+    /**
+     * CustomerService: Service for handling customer-related operations.
+     * CountryService: Service for managing country data.
+     * PasswordEncoder: Utility for encoding and matching passwords.
+     * CityService: Service for managing city data.
+     */
     private final CustomerService customerService;
     private final CountryService countryService;
     private final PasswordEncoder passwordEncoder;
     private final CityService cityService;
 
+    /**
+     * @GetMapping("/profile"): Handles GET requests for viewing the customer's profile.
+     * Principal Authentication: Checks if the user is logged in by inspecting the Principal. If not logged in, redirects to the login page.
+     * Fetching Data: Retrieves the customer’s information, list of countries, and cities to populate the profile page.
+     * Model Population: Adds the customer data, countries, and cities to the model for rendering in the view.
+     * @param model
+     * @param principal
+     * @return "customer-information"
+     */
     @GetMapping("/profile")
     public String profile(Model model, Principal principal) {
         if (principal == null) {
@@ -47,6 +65,18 @@ public class CustomerController {
 
     }
 
+    /**
+     * @PostMapping("/update-profile"): Handles POST requests for updating the profile.
+     * Form Validation: Uses @Valid and BindingResult to validate the form input. If validation fails, the form is re-rendered.
+     * Customer Update: Calls customerService.update(customerDto) to update the customer's profile.
+     * RedirectAttributes: Flash attributes are used to pass success messages after a redirect.
+     * @param customerDto
+     * @param result
+     * @param attributes
+     * @param model
+     * @param principal
+     * @return "redirect:/profile"
+     */
     @PostMapping("/update-profile")
     public String updateProfile(@Valid @ModelAttribute("customer") CustomerDto customerDto,
                                 BindingResult result,
@@ -73,6 +103,13 @@ public class CustomerController {
 
     }
 
+    /**
+     * @GetMapping("/change-password"): Handles GET requests for rendering the password change form.
+     * Model Attributes: Adds the title and page information to the model for rendering.
+     * @param model
+     * @param principal
+     * @return "change-password"
+     */
     @GetMapping("/change-password")
     public String changePassword(Model model, Principal principal) {
         if (principal == null) {
@@ -83,6 +120,18 @@ public class CustomerController {
         return "change-password";
     }
 
+    /**
+     * Password Validation: Ensures that the old password matches, the new password is different, the new password and repeated password match, and the new password meets the length requirement.
+     * Updating the Password: If all conditions are met, the new password is encoded and saved using customerService.changePass(customer).
+     * Feedback to User: Provides feedback messages (success or error) to the user.
+     * @param oldPassword
+     * @param newPassword
+     * @param repeatPassword
+     * @param attributes
+     * @param model
+     * @param principal
+     * @return true if the password is changed successfully, false otherwise
+     */
     @PostMapping("/change-password")
     public String changePass(@RequestParam("oldPassword") String oldPassword,
                              @RequestParam("newPassword") String newPassword,

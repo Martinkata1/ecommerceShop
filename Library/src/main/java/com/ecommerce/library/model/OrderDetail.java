@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+/**
+ * Model/Entity implementation for Order Detail
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

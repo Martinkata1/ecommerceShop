@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * Controller for products
+ */
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
@@ -22,6 +25,13 @@ public class ProductController {
 
     private final CategoryService categoryService;
 
+    /**
+     * Displays the main product menu, showing all available categories and products.
+     * Category & Product Data: The categories and products are retrieved from their
+     * respective services and added to the model for rendering on the "index" page.
+     * @param model
+     * @return "index"
+     */
     @GetMapping("/menu")
     public String menu(Model model) {
         model.addAttribute("page", "Products");
@@ -34,6 +44,14 @@ public class ProductController {
     }
 
 
+    /**
+     * Shows the detailed view of a specific product identified by its id.
+     * Related Products: Retrieves and displays products from the same category,
+     * allowing customers to explore similar items.
+     * @param id
+     * @param model
+     * @return "product-detail"
+     */
     @GetMapping("/product-detail/{id}")
     public String details(@PathVariable("id") Long id, Model model) {
         ProductDto product = productService.getById(id);
@@ -45,6 +63,14 @@ public class ProductController {
         return "product-detail";
     }
 
+    /**
+     * Displays the shop's detail page, showcasing a random selection of products, along with
+     * the categories and a list of recently viewed products.
+     * Product and Category Data: The page includes various lists, such as
+     * random products and recently viewed products, making the shopping experience more engaging.
+     * @param model
+     * @return "shop-detail"
+     */
     @GetMapping("/shop-detail")
     public String shopDetail(Model model) {
         List<CategoryDto> categories = categoryService.getCategoriesAndSize();
@@ -59,6 +85,11 @@ public class ProductController {
     }
 
 
+    /**
+     * Show from high price to low
+     * @param model
+     * @return "shop-detail"
+     */
     @GetMapping("/high-price")
     public String filterHighPrice(Model model) {
         List<CategoryDto> categories = categoryService.getCategoriesAndSize();
@@ -73,6 +104,11 @@ public class ProductController {
     }
 
 
+    /**
+     * Show from Low price to High
+     * @param model
+     * @return "shop-detail"
+     */
     @GetMapping("/lower-price")
     public String filterLowerPrice(Model model) {
         List<CategoryDto> categories = categoryService.getCategoriesAndSize();
@@ -86,6 +122,14 @@ public class ProductController {
         return "shop-detail";
     }
 
+    /**
+     * Displays products within a specific category identified by its id.
+     * Category-Specific Products: Allows customers to browse all products
+     * belonging to a particular category.
+     * @param id
+     * @param model
+     * @return "products"
+     */
     @GetMapping("/find-products/{id}")
     public String productsInCategory(@PathVariable("id") Long id, Model model) {
         List<CategoryDto> categoryDtos = categoryService.getCategoriesAndSize();
@@ -100,6 +144,14 @@ public class ProductController {
     }
 
 
+    /**
+     * Enables users to search for products using a keyword.
+     * Search Results: Displays the search results along with recently
+     * viewed products and categories on the "products" page.
+     * @param keyword
+     * @param model
+     * @return "products"
+     */
     @GetMapping("/search-product")
     public String searchProduct(@RequestParam("keyword") String keyword, Model model) {
         List<CategoryDto> categoryDtos = categoryService.getCategoriesAndSize();

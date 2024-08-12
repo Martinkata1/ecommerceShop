@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Model/Entity implementation for CartItem
+ */
 @Getter
 @Setter
 @AllArgsConstructor

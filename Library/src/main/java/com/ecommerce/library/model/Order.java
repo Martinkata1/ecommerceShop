@@ -6,6 +6,9 @@ import lombok.*;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Model/Entity implementation for Order
+ */
 @Getter
 @Setter
 @EqualsAndHashCode

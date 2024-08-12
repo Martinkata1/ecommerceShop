@@ -4,6 +4,15 @@ import com.ecommerce.library.dto.ProductDto;
 import com.ecommerce.library.dto.ShoppingCartDto;
 import com.ecommerce.library.model.ShoppingCart;
 
+/**
+ *  Service for Shopping cart
+ *  add/update/remove item from cart
+ *  add/update/delete cart session
+ *  combine cart
+ *  show cart by username
+ *  delete cart by id
+ */
+
 public interface ShoppingCartService {
     ShoppingCart addItemToCart(ProductDto productDto, int quantity, String username);
 

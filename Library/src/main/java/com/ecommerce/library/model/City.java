@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+/**
+ *  Model/Entity implementation for City
+ */
 @Entity
 @Data
 @NoArgsConstructor

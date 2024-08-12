@@ -13,11 +13,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
 
+/**
+ * Controller for accessing the home page
+ */
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
+    /**
+     * Service used to manage customer-related operations, such as retrieving customer information
+     */
     private final CustomerService customerService;
 
+    /**
+     * Maps the root URL / and /index to the home method. This handles the default
+     * landing page of the website.
+     * Model Attributes: The model is populated with the title and page attributes, which
+     * can be used in the view to display the page title and other relevant information.
+     * User Authentication Check: If the user is logged in (checked via the Principal object),
+     * the controller retrieves the customer's full name and stores it in the session.
+     * Shopping Cart Management: If the customer has a shopping cart, the total number of items
+     * in the cart is stored in the session. This data can be displayed in the header or elsewhere
+     * on the site to indicate the number of items in the cart.
+     * @param model
+     * @param principal
+     * @param session
+     * @return "home"
+     */
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String home(Model model, Principal principal, HttpSession session) {
         model.addAttribute("title", "Home");
@@ -33,6 +54,12 @@ public class HomeController {
         return "home";
     }
 
+    /**
+     * Maps the /contact URL to the contact method, handling requests for the contact page.
+     * Model Attributes: Adds the title and page attributes for the contact page to the model. These attributes can be used to dynamically set the page title and other related information in the view.
+     * @param model
+     * @return the contact method
+     */
     @GetMapping("/contact")
     public String contact(Model model) {
         model.addAttribute("title", "Contact");
@@ -40,6 +67,12 @@ public class HomeController {
         return "contact-us";
     }
 
+    /**
+     * URL to the getInfo method, handling requests for the information page.
+     * Model Attributes: Adds the title and page attributes for the information page to the model.
+     * @param model
+     * @return the getInfo method
+     */
     @GetMapping("/info")
     public String getInfo(Model model) {
         model.addAttribute("title", "Information");

@@ -14,21 +14,48 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/**
+ * This annotation designates the class as a configuration
+ * class for Spring that defines beans.
+ */
 @Configuration
+/**
+ * This annotation enables Spring Security and allows customization
+ * of security by defining beans and configurations in this class.
+ */
 @EnableWebSecurity
 public class CustomerConfiguration {
 
+    /**
+     * This is the main interface in Spring Security for loading
+     * user information. You provide your own implementation of
+     * this interface (CustomerServiceConfig) that will be used
+     * to load users from the database or other source.
+     * @return UserDetailsService
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         return new CustomerServiceConfig();
     }
 
+    /**
+     * This bean is used to encode passwords before they
+     * are stored in the database and to validate users on login.
+     * @return passwordEncoder
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
 
+    /**
+     * This is the main mechanism for defining the security of your application.
+     * You configure how HTTP requests should be secured, which paths are allowed
+     * for all and which require authentication.
+     * @param http
+     * @throws Exception
+     */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder
@@ -40,19 +67,31 @@ public class CustomerConfiguration {
 
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
+
         http
+                /**
+                 * Disable CSRF protection, which may be appropriate if you use security tokens, but care should be taken.
+                 * Access to static resources and public paths (such as the main page and product details) is allowed for everyone.
+                 * Paths related to shopping and searching for products are only allowed for users with the "CUSTOMER" role.
+                 */
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(author ->
                         author.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                 .requestMatchers("/*", "/product-detail/**").permitAll()
                                 .requestMatchers("/shop/**", "/find-products/**").hasAuthority("CUSTOMER")
                 )
+                /**
+                 *  Configure a login form with a custom login page (/login), a login processing URL (/do-login), and a successful login URL (/index).
+                 */
                 .formLogin(login ->
                         login.loginPage("/login")
                                 .loginProcessingUrl("/do-login")
                                 .defaultSuccessUrl("/index", true)
                                 .permitAll()
                 )
+                /**
+                 * You configure an exit that deletes the session and clears the certificate, then redirects to the login page with the logout parameter.
+                 */
                 .logout(logout ->
                         logout.invalidateHttpSession(true)
                                 .clearAuthentication(true)
@@ -61,6 +100,9 @@ public class CustomerConfiguration {
                                 .permitAll()
                 )
                 .authenticationManager(authenticationManager)
+                /**
+                 * You set a session creation policy that always creates a new session on authentication.
+                 */
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 )

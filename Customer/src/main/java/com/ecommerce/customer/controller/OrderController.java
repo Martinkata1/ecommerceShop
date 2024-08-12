@@ -16,9 +16,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * Controller for accessing the order page
+ */
 @Controller
 @RequiredArgsConstructor
 public class OrderController {
+    /**
+     * CustomerService: Handles customer-related operations.
+     * OrderService: Manages orders and order-related operations.
+     * ShoppingCartService: Handles shopping cart operations.
+     * CountryService and CityService: Provide geographic data,
+     * used primarily for customer profile information.
+     */
     private final CustomerService customerService;
     private final OrderService orderService;
 
@@ -28,6 +38,19 @@ public class OrderController {
 
     private final CityService cityService;
 
+    /**
+     * This method handles the checkout process.
+     * Authentication Check: If the user is not authenticated
+     * (principal == null), they are redirected to the login page.
+     * Customer Information Validation: If the customer's profile
+     * lacks necessary information (like address, city, or phone number),
+     * they are prompted to update it before proceeding with the checkout.
+     * Checkout Page: If all necessary information is present, the method
+     * prepares the checkout page, including the customer’s shopping cart and total items.
+     * @param principal
+     * @param model
+     * @return "checkout"
+     */
     @GetMapping("/check-out")
     public String checkOut(Principal principal, Model model) {
         if (principal == null) {
@@ -56,6 +79,16 @@ public class OrderController {
         }
     }
 
+    /**
+     * Retrieves and displays a list of orders associated
+     * with the authenticated customer.
+     * Authentication Check: Ensures the user is logged in.
+     * Order List: The customer’s orders are retrieved and
+     * added to the model for display on the "Order" page.
+     * @param model
+     * @param principal
+     * @return "order"
+     */
     @GetMapping("/orders")
     public String getOrders(Model model, Principal principal) {
         if (principal == null) {
@@ -70,6 +103,16 @@ public class OrderController {
         }
     }
 
+    /**
+     * Displays the details of a specific order, identified by its orderId.
+     * Authentication Check: Ensures the user is logged in.
+     * Order Retrieval: The specific order is retrieved using the orderId, and
+     * its details are added to the model for display on the "Order Detail" page.
+     * @param orderId
+     * @param model
+     * @param principal
+     * @return will show the specific order
+     */
     @GetMapping("/orders/specific-order-detail/{orderId}")
     public String getOrderDetails(@PathVariable("orderId") Long orderId, Model model, Principal principal) {
         if (principal == null) {
@@ -86,7 +129,16 @@ public class OrderController {
     }
 
 
-        @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
+    /**
+     * Cancels an order identified by its id.
+     * Method Mapping: This endpoint can handle both PUT and GET requests.
+     * Order Cancellation: The order is canceled through the orderService, and a success message is flashed to the user.
+     * Redirection: The user is redirected back to the orders list page.
+     * @param id
+     * @param attributes
+     * @return true if the order was canceled successfully, false otherwise
+     */
+    @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
     public String cancelOrder(Long id, RedirectAttributes attributes) {
         orderService.cancelOrder(id);
         attributes.addFlashAttribute("success", "Cancel order successfully!");
@@ -94,6 +146,19 @@ public class OrderController {
     }
 
 
+    /**
+     * Handles the creation of a new order from the customer’s shopping cart.
+     * Authentication Check: Ensures the user is logged in.
+     * Order Creation: The customer’s shopping cart is converted into an order,
+     * which is then saved. The total items in the session are cleared to reflect
+     * the completed purchase.
+     * Order Confirmation: After the order is created, the user is directed to the
+     * "Order Detail" page to view the newly created order.
+     * @param principal
+     * @param model
+     * @param session
+     * @return "order-detail"
+     */
     @RequestMapping(value = "/add-order", method = {RequestMethod.POST})
     public String createOrder(Principal principal,
                               Model model,

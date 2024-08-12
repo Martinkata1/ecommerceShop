@@ -7,7 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
+/**
+ * Model/Entity implementation for Admin based for  MySQL
+ */
+
+@Data //This is a Lombok annotation that generates getters, setters, toString(), equals(), and hashCode() methods, along with a constructor for all fields.
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

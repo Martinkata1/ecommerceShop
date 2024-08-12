@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import java.util.Set;
 
+/**
+ * Data Transfer Object for a customer's shopping cart
+ */
 @Getter
 @Setter
 @AllArgsConstructor

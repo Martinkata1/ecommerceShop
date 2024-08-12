@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository for Category
+ */
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Query(value = "update Category set name = ?1 where id = ?2")

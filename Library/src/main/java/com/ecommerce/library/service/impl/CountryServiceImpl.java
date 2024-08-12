@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementation of  Country Service
+ * show every country
+ */
 @Service
 @RequiredArgsConstructor
 public class CountryServiceImpl implements CountryService {

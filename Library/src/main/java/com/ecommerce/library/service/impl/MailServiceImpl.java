@@ -11,7 +11,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
-
+//Implementation for MailService
+// Send email to customer
 @Service
 public class MailServiceImpl implements MailService {
 

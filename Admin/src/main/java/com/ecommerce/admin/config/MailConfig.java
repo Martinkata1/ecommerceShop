@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
 public class MailConfig {
+    // Configuring the JavaMailSender bean with Gmail SMTP settings.
 
     @Bean
     public JavaMailSender javaMailSender() {

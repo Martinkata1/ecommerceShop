@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementation of  City Service
+ *  find all cities
+ */
 @Service
 @RequiredArgsConstructor
 public class CityServiceImpl implements CityService {

@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data Transfer Object for Customer information
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

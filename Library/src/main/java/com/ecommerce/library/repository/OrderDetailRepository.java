@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository for Order Details
+ */
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Long> {
     @Query("select o from Order o where o.customer.id = ?1")

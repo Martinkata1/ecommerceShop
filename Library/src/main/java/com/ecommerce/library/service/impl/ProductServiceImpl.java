@@ -17,6 +17,16 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+/**
+ * Implementation for Product Service
+ * Find every type of products, by dto or no
+ * save, update, enable by id, delete by id
+ * get by id, find by id
+ * random product, search product
+ * get all products by customer, by category, by search
+ * by asc/desc products
+ * transfer data/ to page
+ */
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {

@@ -4,7 +4,9 @@ import com.ecommerce.library.model.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * Data Transfer Object for product
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
