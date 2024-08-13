@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Site Metas -->
-    <title th:text="${title}">Меню</title>
+    <title th:text="${title}">[[#{menu.menu}]]</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -118,18 +118,18 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="nav-item"><a class="nav-link" th:href="@{/}">Начало</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/menu}">Меню <img th:src="@{/images/menu.png}"
+                    <li class="nav-item"><a class="nav-link" th:href="@{/menu}">menu.menu<img th:src="@{/images/menu.png}"
                                                                                           class="store" width="20"
                                                                                           height="20" alt=""></a></li>
 
                     <li class="dropdown">
-                        <a href="shop-detail" class="nav-link">Магазин <img th:src="@{/images/store.png}" class="store" width="20"
+                        <a href="shop-detail" class="nav-link">[[#{menu.shop}]] <img th:src="@{/images/store.png}" class="store" width="20"
                                                                height="20" alt=""></a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/shop-detail}">Продукти</a></li>
                             <li><a th:href="@{/orders}">Вашите поръчки</a></li>
                             <li><a th:href="@{/profile}">Профил</a></li>
-                            <li><a th:href="@{/logout}">Изход</a></li>
+                            <li><a th:href="@{/logout}">[[#{app.logout}]]</a></li>
                         </ul>
                     </li>
                     <li class="nav-item active"><a class="nav-link" th:href="@{/contact}">Връзка с нас</a></li>
@@ -151,6 +151,20 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{?lang=bg}">
+                        <img th:src="@{/images/bulgaria.png}" width="20" height="20" alt="">
+                        Български
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{?lang=en}">
+                        <img th:src="@{/images/united-kingdom.png}" width="20" height="20" alt="">
+                        English
+                    </a>
+                </li>
             </div>
             <!-- End Atribute Navigation -->
         </div>

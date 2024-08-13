@@ -3,6 +3,7 @@ package com.ecommerce.customer.controller;
 import com.ecommerce.library.model.Customer;
 import com.ecommerce.library.model.ShoppingCart;
 import com.ecommerce.library.service.CustomerService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.security.Principal;
+import java.util.Locale;
 
 /**
  * Controller for accessing the home page
@@ -40,9 +42,31 @@ public class HomeController {
      * @return "home"
      */
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public String home(Model model, Principal principal, HttpSession session) {
+    public String home(Model model, Principal principal, HttpSession session, HttpServletRequest request) {
         model.addAttribute("title", "Home");
         model.addAttribute("page", "Home");
+
+        /**
+         * Understand Locale in Spring Boot Internationalization
+         * After reseting the site, it will show information about languages
+         */
+        Locale currentLocale = request.getLocale();
+        String countryCode = currentLocale.getCountry();
+        String countryName = currentLocale.getDisplayCountry();
+
+        String LangCode= currentLocale.getLanguage();
+        String LangName= currentLocale.getDisplayLanguage();
+
+        System.out.println(countryCode + ": " + countryName);
+        System.out.println(LangCode + ": " + LangName);
+        System.out.println("=================================");
+        String[] languages = Locale.getISOCountries();
+
+        for(String language : languages){
+            Locale locale = new Locale(language);
+            System.out.println(language + ": " + locale.getDisplayLanguage());
+        }
+
         if (principal != null) {
             Customer customer = customerService.findByUsername(principal.getName());
             session.setAttribute("username", customer.getFirstName() + " " + customer.getLastName());
