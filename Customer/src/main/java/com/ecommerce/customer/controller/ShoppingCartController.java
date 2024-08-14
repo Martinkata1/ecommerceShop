@@ -9,6 +9,7 @@ import com.ecommerce.library.service.ShoppingCartService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,9 +26,12 @@ public class ShoppingCartController {
      * The controller interacts with the ShoppingCartService,
      * ProductService, and CustomerService to handle these operations.
      */
-    private final ShoppingCartService cartService;
-    private final ProductService productService;
-    private final CustomerService customerService;
+    @Autowired
+    private  ShoppingCartService cartService;
+    @Autowired
+    private  ProductService productService;
+    @Autowired
+    private  CustomerService customerService;
 
     /**
      * Displays the shopping cart page for the logged-in customer.

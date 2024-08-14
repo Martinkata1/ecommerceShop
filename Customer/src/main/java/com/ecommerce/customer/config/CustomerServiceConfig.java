@@ -1,7 +1,9 @@
 package com.ecommerce.customer.config;
 
+import com.ecommerce.library.dto.CustomerDto;
 import com.ecommerce.library.model.Customer;
 import com.ecommerce.library.repository.CustomerRepository;
+import com.ecommerce.library.service.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -54,4 +56,17 @@ public class CustomerServiceConfig implements UserDetailsService {
                         .stream()
                         .map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList()));
     }
+    private CustomerMapper customerMapper;
+
+    public CustomerDto getCustomer(Long id) {
+        Customer customer = customerRepository.findById(id).orElseThrow();
+        return customerMapper.toDto(customer);
+    }
+
+    public CustomerDto saveCustomer(CustomerDto customerDto) {
+        Customer customer = customerMapper.toEntity(customerDto);
+        customer = customerRepository.save(customer);
+        return customerMapper.toDto(customer);
+    }
+
 }

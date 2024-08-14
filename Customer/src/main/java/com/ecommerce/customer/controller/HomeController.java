@@ -6,6 +6,7 @@ import com.ecommerce.library.service.CustomerService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,8 @@ public class HomeController {
     /**
      * Service used to manage customer-related operations, such as retrieving customer information
      */
-    private final CustomerService customerService;
+    @Autowired
+    private  CustomerService customerService;
 
     /**
      * Maps the root URL / and /index to the home method. This handles the default

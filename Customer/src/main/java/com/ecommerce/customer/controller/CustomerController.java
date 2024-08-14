@@ -8,6 +8,7 @@ import com.ecommerce.library.service.CountryService;
 import com.ecommerce.library.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,10 +34,14 @@ public class CustomerController {
      * PasswordEncoder: Utility for encoding and matching passwords.
      * CityService: Service for managing city data.
      */
-    private final CustomerService customerService;
-    private final CountryService countryService;
-    private final PasswordEncoder passwordEncoder;
-    private final CityService cityService;
+    @Autowired
+    private  CustomerService customerService;
+    @Autowired
+    private  CountryService countryService;
+    @Autowired
+    private  PasswordEncoder passwordEncoder;
+    @Autowired
+    private  CityService cityService;
 
     /**
      * @GetMapping("/profile"): Handles GET requests for viewing the customer's profile.

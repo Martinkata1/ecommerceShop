@@ -5,6 +5,7 @@ import com.ecommerce.library.model.Customer;
 import com.ecommerce.library.service.CustomerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +22,10 @@ public class LoginController {
      * CustomerService: Service that handles customer-related operations such as retrieving and saving customer data.
      * BCryptPasswordEncoder: Encoder used to hash and verify passwords securely.
      */
-    private final CustomerService customerService;
-    private final BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private  CustomerService customerService;
+    @Autowired
+    private  BCryptPasswordEncoder passwordEncoder;
 
     /**
      *  Maps the /login URL to the login method, handling GET requests for the login page.

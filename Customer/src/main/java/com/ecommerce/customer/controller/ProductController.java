@@ -6,6 +6,7 @@ import com.ecommerce.library.model.Category;
 import com.ecommerce.library.service.CategoryService;
 import com.ecommerce.library.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +22,11 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
-    private final ProductService productService;
+    @Autowired
+    private  ProductService productService;
 
-    private final CategoryService categoryService;
+    @Autowired
+    private  CategoryService categoryService;
 
     /**
      * Displays the main product menu, showing all available categories and products.

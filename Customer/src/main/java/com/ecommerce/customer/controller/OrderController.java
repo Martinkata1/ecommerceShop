@@ -5,6 +5,7 @@ import com.ecommerce.library.model.*;
 import com.ecommerce.library.service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,14 +30,16 @@ public class OrderController {
      * CountryService and CityService: Provide geographic data,
      * used primarily for customer profile information.
      */
-    private final CustomerService customerService;
-    private final OrderService orderService;
-
-    private final ShoppingCartService cartService;
-
-    private final CountryService countryService;
-
-    private final CityService cityService;
+    @Autowired
+    private  CustomerService customerService;
+    @Autowired
+    private  OrderService orderService;
+    @Autowired
+    private  ShoppingCartService cartService;
+    @Autowired
+    private  CountryService countryService;
+    @Autowired
+    private  CityService cityService;
 
     /**
      * This method handles the checkout process.
