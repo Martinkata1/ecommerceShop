@@ -13,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.client.RestTemplate;
+
 /**
  * Configuration for Admin, it is meaning that the class
  * has defined beans and configuration, which is used from Spring IoC
@@ -106,5 +108,10 @@ public class AdminConfiguration {
         ;
         return http.build();
     }
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
 
 }

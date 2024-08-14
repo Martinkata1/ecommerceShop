@@ -150,6 +150,7 @@ public class CustomerConfiguration {
         cookieLocaleResolver.setDefaultLocale(new Locale("en")); // Default to Bulgarian
         cookieLocaleResolver.setCookieName("lang"); // Stores language preference in a cookie
         cookieLocaleResolver.setCookieMaxAge(3600); // Cookie duration (optional)
+
         return cookieLocaleResolver;
     }
 

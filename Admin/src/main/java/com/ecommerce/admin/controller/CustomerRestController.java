@@ -1,18 +1,39 @@
 package com.ecommerce.admin.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ecommerce.library.model.Customer;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/users")
 public class CustomerRestController {
-    @GetMapping("/users")
-    public List<Customers> getAllUsers(){
-        return Arrays.asList(new Customers(10L, "Ivan", "ivan_qkiq@gmail.com"),
-                            new Customers(11L, "Anna", "anna_gomes@gmail.com")
-        );
-
+    private List<Customer> users = new ArrayList<>();
+    @GetMapping
+    public List<Customer> getAllUsers() {
+        return users;
     }
+    @PostMapping
+    public Customer createCustomer(@RequestBody Customer customer) {
+        //customer.setId((Long)(users.size() + 1));
+        customer.setId(Long.valueOf(users.size() + 1));
+        users.add(customer);
+        return customer;
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        Optional<Customer> userToDelete = users.stream()
+                .filter(user -> user.getId().equals(id)).findFirst();
+        if (userToDelete.isPresent()) {
+            users.remove(userToDelete.get());
+            return "User with ID " + id + " deleted successfully.";
+        } else {
+            return "User not found.";
+        }
+    }
+
+
 }
