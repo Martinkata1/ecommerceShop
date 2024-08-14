@@ -15,6 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -120,22 +121,51 @@ public class CustomerConfiguration {
      * This method configures the locale of the application. Languages!
      * @return
      */
-    @Bean
+    /* @Bean
+    public LocaleResolver localeResolver(){
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        cookieLocaleResolver.setDefaultLocale(new Locale("bg"));
+        return cookieLocaleResolver;
+    }
+    */
+
+    /*@Bean
     public LocaleResolver LocaleResolver(){
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.US);
 
         return slr;
-    }
+    }*/
+    /*
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
         return lci;
+    }*/
+
+    @Bean
+    public LocaleResolver localeResolver() {
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        cookieLocaleResolver.setDefaultLocale(new Locale("en")); // Default to Bulgarian
+        cookieLocaleResolver.setCookieName("lang"); // Stores language preference in a cookie
+        cookieLocaleResolver.setCookieMaxAge(3600); // Cookie duration (optional)
+        return cookieLocaleResolver;
+    }
+
+
+    public void addInterceptors(InterceptorRegistry registry) {
+        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName("lang"); // URL parameter to switch languages
+        registry.addInterceptor(localeChangeInterceptor);
     }
 
     //@Override
+    /*
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
+    */
+
+
 }
