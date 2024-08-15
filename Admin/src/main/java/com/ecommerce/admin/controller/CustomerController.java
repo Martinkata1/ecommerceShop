@@ -13,8 +13,8 @@ public class CustomerController {
     @GetMapping("/customers")
     public String getCustomerPage(Model model){
         List<Customers> customers = Arrays.asList(
-                new Customers(10L, "Ivan", "ivan_qkiq@gmail.com"),
-                new Customers(11L, "Anna", "anna_gomes@gmail.com")
+                //new Customers(10L,"John","12341" ,"john_doe@gmail.com"),
+                //new Customers(11L, "Anna", "anna_gomes@gmail.com")
         );
         model.addAttribute("customers", customers);
         return "customers";

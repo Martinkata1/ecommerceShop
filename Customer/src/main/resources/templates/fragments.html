@@ -45,9 +45,9 @@
                 <div class="our-link">
                     <ul>
                         <li><a ><img th:src="@{/images/phone.png}" class="store" width="20" height="20" alt="">
-                            Call US : 0878 015398</a></li>
+                            [[#{menu.phone}]]</a></li>
                         <li><a href="info"><i class="location-arrow"> <img th:src="@{/images/location.png}" class="store"
-                                                                        width="20" height="20" alt=""></i> Address: гр. София, бул. Владимир Вазов 89А</a></li>
+                                                                        width="20" height="20" alt=""></i>[[#{address.shop}]] </a></li>
                     </ul>
                 </div>
             </div>
@@ -55,10 +55,10 @@
                 <div class="login-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In"
                             onchange="location = this.value;">
-                        <option>Автентикация</option>
-                        <option th:if="${session.username == null}" value="http://localhost:8889/shop/login">Влизане
+                        <option>[[#{authentication}]]</option>
+                        <option th:if="${session.username == null}" value="http://localhost:8889/shop/login">[[#{login}]]
                         </option>
-                        <option th:if="${session.username == null}" value="http://localhost:8889/shop/register">Регистрация
+                        <option th:if="${session.username == null}" value="http://localhost:8889/shop/register">[[#{register}]]
                         </option>
                     </select>
                 </div>
@@ -66,28 +66,28 @@
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">
                             <li>
-                                <i class="opencart"></i> Отстъпка от 5% за нови членове
+                                <i class="opencart"></i> [[#{bonus1}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> Безплатна доставка при покупка над 50 лв
+                                <i class="opencart"></i> [[#{bonus2}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> 10% отстъпка за целия промоционален код за покупка: BalkanSofra
+                                <i class="opencart"></i> [[#{bonus3}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> Намаление до 10%! Пазарувайте сега
+                                <i class="opencart"></i> [[#{bonus4}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> Отстъпка от 5% за нови членове
+                                <i class="opencart"></i> [[#{bonus1}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> Безплатна доставка при покупка над 50 лв
+                                <i class="opencart"></i> [[#{bonus2}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> 10% отстъпка за целия промоционален код за покупка: BalkanSofra
+                                <i class="opencart"></i> [[#{bonus3}]]
                             </li>
                             <li>
-                                <i class="opencart"></i> Намаление до 10%! Пазарувайте сега
+                                <i class="opencart"></i> [[#{bonus4}]]
                             </li>
                         </ul>
                     </div>
@@ -139,13 +139,13 @@
                         <a href="shop-detail" class="nav-link">[[#{menu.shop}]]<img th:src="@{/images/store.png}" class="store" width="20"
                                                                height="20" alt=""></a>
                         <ul class="dropdown-menu">
-                            <li><a th:href="@{/shop-detail}">Продукти</a></li>
-                            <li><a th:href="@{/orders}">Вашите поръчки</a></li>
-                            <li><a th:href="@{/profile}">Профил</a></li>
-                            <li><a th:href="@{/logout}" th:text="#{app.logout}">Logout</a></li>
+                            <li><a th:href="@{/shop-detail}">[[#{menu.products}]]</a></li>
+                            <li><a th:href="@{/orders}">[[#{menu.order}]]</a></li>
+                            <li><a th:href="@{/profile}">[[#{menu.profile}]]</a></li>
+                            <li><a th:href="@{/logout}" th:text="#{app.logout}">[[#{menu.logout}]]</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item active"><a class="nav-link" th:href="@{/contact}">Връзка с нас</a></li>
+                    <li class="nav-item active"><a class="nav-link" th:href="@{/contact}">[[#{menu.contacts}]]</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -160,7 +160,7 @@
                                                           height="20" alt=""></i>
                             <span class="badge"
                                   th:text="${session.totalItems == null} ? '0' : ${session.totalItems}"></span>
-                            <p>Мойта количка</p>
+                            <p>[[#{menu.chart}]]</p>
                         </a>
                     </li>
                 </ul>
@@ -193,7 +193,7 @@
             <div class="col-lg-12">
                 <h2 th:text="${page}"></h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../shop">Balkan Sofra</a></li>
+                    <li class="breadcrumb-item"><a href="../shop">[[#{app.title}]]</a></li>
                     <li class="breadcrumb-item active" th:text="${page}"></li>
                 </ul>
             </div>
@@ -262,9 +262,9 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-top-box">
-                        <h3>Работно време</h3>
+                        <h3>Контакти</h3>
                         <ul class="list-time">
-                            <li>Понеделник - Събота: 8:00 to 20:00</li>
+                            <li></li>
                         </ul>
                     </div>
                 </div>

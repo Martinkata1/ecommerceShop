@@ -49,7 +49,7 @@
                     <div class="single-product-details">
                         <h2 th:text="${productDetail.name}"></h2>
                         <h5 th:text="'$' + ${productDetail.costPrice}"></h5>
-                        <h4>Short Description:</h4>
+                        <h4>[[#{short.description}]]:</h4>
                         <p th:text="${productDetail.description}"></p>
                         <div class="price-box-bar">
                             <div class="cart-and-bay-btn">
@@ -66,7 +66,7 @@
     <div class="row my-5">
         <div class="col-lg-12">
             <div class="title-all text-center">
-                <h1>Избрани продукти</h1>
+                <h1>[[#{selected.products}]]</h1>
             </div>
             <div class="featured-products-box owl-carousel owl-theme">
                 <div class="item" th:each="product : ${products}">

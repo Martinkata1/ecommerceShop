@@ -42,13 +42,13 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="order-date">Дата на поръчката</th>
-                            <th>Предвидена доставка на поръчката</th>
-                            <th class="price-pr">Статус на поръчката</th>
-                            <th class="quantity-box">Бройка</th>
-                            <th>Обща цена</th>
-                            <th class="total-pr"> Начин на плащане</th>
-                            <th>Действие</th>
+                            <th class="order-date">[[#{date.order}]]</th>
+                            <th>[[#{date.expected}]]</th>
+                            <th class="price-pr">[[#{status.order}]]</th>
+                            <th class="quantity-box">[[#{quantity}]]</th>
+                            <th>[[#{final.price}]]</th>
+                            <th class="total-pr"> [[#{methods.payment}]]</th>
+                            <th>[[#{actions}]]</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,7 +61,7 @@
                                 <a th:if="${order.accept != null}" th:href="@{/orders/specific-order-detail/{id}(id=${order.id})}">
                                     [(${order.deliveryDate})]
                                 </a>
-                                <a th:if="${order.accept == null}"><p>Изчакване</p></a>
+                                <a th:if="${order.accept == null}"><p>[[#{pending}]]</p></a>
                             </td>
                             <td class="price-pr">
                                 <p th:text="${order.orderStatus}"></p>
@@ -70,13 +70,13 @@
                                 <span th:text="${order.quantity}"></span>
                             </td>
                             <td class="total-pr">
-                                <p style="color: red">$ [(${order.totalPrice})]</p>
+                                <p style="color: red"> [(${order.totalPrice})] [[#{bgn}]]</p>
                             </td>
                             <td class="total-pr" style="color: black">
                                 <span>[(${order.paymentMethod})]</span>
                             </td>
                             <td>
-                                <a th:href="@{/cancel-order(id=${order.id})}" class="button-cancel">Откажете</a>
+                                <a th:href="@{/cancel-order(id=${order.id})}" class="button-cancel">[[#{cancel}]]</a>
                             </td>
                             <!-- <td>
                             <a th:if="${order.accept} != false" th:href="@{/cancel-order(id = ${order.id})}"

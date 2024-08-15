@@ -43,9 +43,9 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Снимка</th>
-                            <th>Име</th>
-                            <th>Цена</th>
+                            <th>[[#{photo}]]</th>
+                            <th>[[#{name.product}]]</th>
+                            <th>[[#{price}]]</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -69,10 +69,10 @@
                         <div class="col-lg-8 col-sm-12"></div>
                         <div class="col-lg-4 col-sm-12">
                             <div class="order-box">
-                                <h3>Обобщение на поръчката</h3>
+                                <h3>[[#{description}]]</h3>
                                 <div class="d-flex">
-                                    <p>Обща бройка [(${order.quantity})]</p>
-                                    <h4>Крайна цена</h4>
+                                    <p>[[#{total.quantity}]] [(${order.quantity})]</p>
+                                    <h4>[[#{final.price}]]</h4>
                                     <div class="ml-auto font-weight-bold" th:text="${order.totalPrice}"></div>
                                 </div>
                                 <hr class="my-1">

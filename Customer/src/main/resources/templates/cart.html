@@ -41,16 +41,16 @@
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
                     <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
-                        Вие нямате продукти в количката ви.</p>
+                        [[#{nochart}]]</p>
                     <table class="table" th:if="${grandTotal}">
                         <thead>
                         <tr>
-                            <th>Снимка</th>
-                            <th>Име на продукта</th>
-                            <th>Цена</th>
-                            <th>Бройка</th>
-                            <th>Общо</th>
-                            <th>действие</th>
+                            <th>[[#{photo}]]</th>
+                            <th>[[#{name.product}]]</th>
+                            <th>[[#{price}]]</th>
+                            <th>[[#{quantity}]]</th>
+                            <th>[[#{all}]]</th>
+                            <th>[[#{action}]]</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,11 +80,11 @@
                                 <td>
                                     <button type="submit" name="action" value="update" title="Update"
                                             class="btn btn-primary">
-                                        Ъпдейт
+                                        [[#{update}]]
                                     </button>
                                     <button type="submit" name="action" value="delete" title="Update"
                                             class="btn btn-danger">
-                                        Премахване
+                                        [[#{delete}]]
                                     </button>
                                 </td>
                             </form>
@@ -99,30 +99,30 @@
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
                 <div class="order-box">
-                    <h3>Списък на поръчката</h3>
+                    <h3>[[#{list.products}]]</h3>
                     <div class="d-flex">
-                        <h4>междинна сума</h4>
+                        <h4>[[#{total}]]</h4>
                         <div class="ml-auto font-weight-bold"></div>
                     </div>
                     <hr class="my-1">
                     <div class="d-flex">
                         <h4>Такса</h4>
-                        <div class="ml-auto font-weight-bold"> 2 BGN</div>
+                        <div class="ml-auto font-weight-bold"> [[#{tax.1}]]</div>
                     </div>
                     <div class="d-flex">
-                        <h4>Доставка цена</h4>
-                        <div class="ml-auto font-weight-bold"> Безплатна</div>
+                        <h4>[[#{delivery.price}]]</h4>
+                        <div class="ml-auto font-weight-bold"> [[#{free}]]</div>
                     </div>
                     <hr>
                     <div class="d-flex gr-total">
-                        <h5>Обща сума</h5>
+                        <h5>[[#{final.price}]]</h5>
                         <div class="ml-auto h5" th:text="${grandTotal + 2} + ' BGN'"></div>
                     </div>
                     <hr>
                 </div>
             </div>
             <div class="col-12 d-flex shopping-box"><a href="checkout.html" th:href="@{/check-out}"
-                                                       class="ml-auto btn hvr-hover">Пподължи</a>
+                                                       class="ml-auto btn hvr-hover">[[#{continue}]]</a>
             </div>
         </div>
     </div>
